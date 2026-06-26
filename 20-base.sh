@@ -54,6 +54,10 @@ SystemdEnable --name getty@tty1.service systemd /usr/lib/systemd/system/getty@.s
 CreateLink /etc/resolv.conf /run/systemd/resolve/stub-resolv.conf
 CopyFile /etc/systemd/network/89-ethernet.network
 
+# Hardware workarounds
+CopyFile /etc/systemd/system/fix-msi-wakeup.service
+SystemdEnable --from-file /etc/systemd/system/fix-msi-wakeup.service
+
 # Archlinux config
 CopyFile /etc/makepkg.conf
 CopyFile /etc/pacman.conf

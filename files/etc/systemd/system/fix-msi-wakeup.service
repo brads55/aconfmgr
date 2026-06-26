@@ -1,0 +1,8 @@
+[Unit]
+Description="Disable GPP1 to fix suspend issue"
+
+[Service]
+ExecStart=/bin/sh -c "/bin/echo GPP1 > /proc/acpi/wakeup"
+
+[Install]
+WantedBy=multi-user.target
