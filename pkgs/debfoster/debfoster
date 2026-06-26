@@ -1,0 +1,100 @@
+#!/usr/bin/env python3
+
+import os
+import re
+import subprocess
+import sys
+import tempfile
+
+
+class Peekable():
+    def __init__(self, elements):
+        self.iterator = iter(elements)
+        self.peeked = False
+        self.head = None
+
+    def peek(self):
+        if not self.peeked:
+            self.peeked = True
+            self.head = next(self.iterator, None)
+
+        return self.head
+
+    def __next__(self):
+        if self.peeked:
+            self.peeked = False
+            return self.head
+
+        return next(self.iterator, None)
+
+
+def create_status(f):
+    status = subprocess.check_output(['pacman', '-Qi']).decode(sys.stdout.encoding)
+    status = Peekable(status.strip().split('\n'))
+
+    transforms = {
+        'Name': 'Package',
+        'Depends On': 'Depends',
+        'Optional Deps': 'Recommends'
+    }
+
+    new_status = []
+    while (line := next(status, None)) is not None:
+        if not line:
+            continue
+
+        m = re.match(r'^([^:]+):\s*(.*)$', line)
+        if m:
+            key = m.group(1).strip()
+            value = m.group(2).strip()
+
+            if key in transforms.keys():
+                key = transforms[key]
+
+            if key == 'Package':
+                f.write(f'\n{key}: {value}\n')
+                f.write("Status: intsall ok installed\n")
+
+            elif key ==  'Version':
+                f.write(f'{key}: {value}\n')
+
+            elif key in ['Depends', 'Provides'] and value != 'None':
+                depends = []
+                for depend in value.split('  '):
+                    m = re.match(r'^([^><=]+)([><=]+.*)$', depend)
+                    if m:
+                        depend = f'{m.group(1)} ({m.group(2)})'
+                    depends.append(depend)
+
+                f.write(f'{key}: {", ".join(depends)}\n')
+
+            elif key == 'Recommends' and value != 'None':
+                depends = [value.split(':')[0]]
+                while (line := status.peek()) is not None and line[0] == ' ':
+                    depend = next(status).strip()
+                    depends.append(depend.split(':')[0])
+
+                f.write(f'{key}: {", ".join(depends)}\n')
+
+        else:
+            print("Error: " + line)
+            sys.exit(1)
+
+
+def main():
+    with tempfile.TemporaryDirectory() as temp_dir:
+        with open(f'{temp_dir}/status', 'w') as f:
+            create_status(f)
+
+        with open(f'{temp_dir}/conf', 'w') as f:
+            f.write(f'KeeperFile = /var/lib/debfoster/keepers\n')
+            f.write(f'DpkgStatus = {temp_dir}/status\n')
+            f.write('InstallCmd = pacman -S\n')
+            f.write('RemoveCmd = pacman -Rn\n')
+            f.write('InfoCmd = pacman -Qi\n')
+
+        subprocess.check_call(['/usr/lib/debfoster/debfoster', '-c' f'{temp_dir}/conf'])
+
+
+if __name__ == '__main__':
+    main()

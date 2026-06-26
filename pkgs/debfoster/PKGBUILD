@@ -1,0 +1,35 @@
+pkgname=debfoster
+pkgver=2.8
+pkgrel=1
+pkgdesc='Install only wanted Debian packages'
+arch=(x86_64)
+url='https://packages.debian.org/sid/debfoster'
+license=('GPL-2.0-only AND LGPL-2.0-only AND LGPL-2.1-only')
+
+source=(
+  "http://deb.debian.org/debian/pool/main/d/${pkgname}/${pkgname}_${pkgver}.orig.tar.xz"
+  "debfoster"
+)
+b2sums=(
+  "3742dfebd59ef87684b627e1b15ea99c9e84c06c4efc639a5afadace8a0991fead70dc23ca5d1fff048f80b324296940d16ac611fb8852dc9588f319aa999ea3"
+  "bb92b923a9025b3106de78277978ad405fa95163f84c045619eabd72eae3feab35c08bcafdbba887d0c862951c50c11da7b191943978b05eb0a0fc4a589c23f4"
+)
+
+build() {
+  cd "$pkgname-$pkgver"
+
+  autoreconf -i
+  ./configure --prefix=/usr --disable-nls --sysconfdir=/etc
+  make
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+
+  make DESTDIR="$pkgdir/" install
+  mkdir -p "$pkgdir/usr/lib/debfoster"
+  mv "$pkgdir/usr/sbin/debfoster" "$pkgdir/usr/lib/debfoster/debfoster"
+  rm -rf "$pkgdir/usr/sbin"
+  install -Dm755 "$srcdir/debfoster" "$pkgdir/usr/bin/debfoster"
+  install -dm755 "$pkgdir/var/lib/debfoster"
+}
