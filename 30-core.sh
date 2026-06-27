@@ -13,3 +13,15 @@ AddPackage zsh # A very advanced and programmable command interpreter (shell) fo
 # Dev tools
 AddPackage ninja # Small build system with a focus on speed
 AddPackage rust # Systems programming language focused on safety, speed and concurrency
+
+# Cluster
+AddPackage cilium-cli # install, manage & troubleshoot Kubernetes clusters running Cilium
+AddPackage fluxcd # Open and extensible continuous delivery solution for Kubernetes
+AddPackage go-task # A task runner written in Go
+AddPackage go-yq # Portable command-line YAML processor
+AddPackage helmfile # Manage multiple helm charts with a single helmfile
+AddPackage k9s # TUI for managing Kubernetes clusters and pods
+AddPackage talhelper # A tool to help create Talos clusters in your GitOps repository
+AddPackage talosctl # CLI for Talos - A modern OS for Kubernetes
+AddPackage --foreign doppler-cli-bin # CLI utility for Doppler, environment and secrets manager.
+AddPackage --foreign kubecolor # Colorize your kubectl output

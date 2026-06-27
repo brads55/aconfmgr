@@ -3,6 +3,7 @@ AddPackage firefox # Fast, Private & Safe Web Browser
 AddPackage gnome-keyring # Stores passwords and encryption keys
 AddPackage hyprpolkitagent # Simple polkit authentication agent for Hyprland, written in QT/QML
 AddPackage kitty # A modern, hackable, featureful, OpenGL-based terminal emulator
+AddPackage libappindicator # Allow applications to extend a menu via Ayatana indicators in Unity, KDE or Systray
 AddPackage niri # A scrollable-tiling Wayland compositor
 AddPackage nvidia-open-dkms # NVIDIA open kernel modules - module sources
 AddPackage partitionmanager # A KDE utility that allows you to manage disks, partitions, and file systems
@@ -11,6 +12,7 @@ AddPackage wl-clipboard # Command-line copy/paste utilities for Wayland
 AddPackage wl-clip-persist # Keep Wayland clipboard even after programs close
 AddPackage xdg-desktop-portal-gnome # Backend implementation for xdg-desktop-portal for the GNOME desktop environment
 AddPackage xwayland-satellite # Xwayland outside your Wayland
+AddPackage --foreign xembedsniproxy
 AddPackage --foreign noctalia-shell # A sleek and minimal desktop shell thoughtfully crafted for Wayland, built with Quickshell.
 
 # Autologin

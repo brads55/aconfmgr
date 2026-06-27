@@ -8,3 +8,4 @@ AddPackage --foreign faugus-launcher # A simple and lightweight app for running 
 
 
 echo "vm.max_map_count = 2147483642" > "$(CreateFile /etc/sysctl.d/80-gamecompatibility.conf)"
+echo "ntsync" > "$(CreateFile /etc/modules-load.d/ntsync.conf)"
