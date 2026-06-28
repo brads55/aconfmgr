@@ -1,0 +1,1 @@
+brad ALL=(brad:input) NOPASSWD: /usr/bin/push-to-talk -k KEY_F12 -n F12 /dev/input/by-id/usb-Razer_Razer_Naga_V2_Pro-if02-event-kbd 
