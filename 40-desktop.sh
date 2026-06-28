@@ -21,6 +21,9 @@ AddPackage easyeffects # Audio Effects for Pipewire applications
 AddPackage lsp-plugins # Collection of open-source plugins
 AddPackage qpwgraph # PipeWire Graph Qt GUI Interface
 
+# Disable power button
+CopyFile /etc/systemd/logind.conf
+
 # Push to talk
 AddPackage --foreign wayland-push-to-talk-fix-git # This fixes the inability to use push to talk in Discord when running Wayland
 AddPackage xdotool # Command-line X11 automation tool
