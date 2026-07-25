@@ -1,20 +1,26 @@
 # Desktop packages
+AddPackage feh # Fast and light imlib2-based image viewer
 AddPackage firefox # Fast, Private & Safe Web Browser
 AddPackage gnome-keyring # Stores passwords and encryption keys
-AddPackage hyprpolkitagent # Simple polkit authentication agent for Hyprland, written in QT/QML
+AddPackage grim # Screenshot utility for Wayland
 AddPackage kitty # A modern, hackable, featureful, OpenGL-based terminal emulator
 AddPackage libappindicator # Allow applications to extend a menu via Ayatana indicators in Unity, KDE or Systray
 AddPackage niri # A scrollable-tiling Wayland compositor
+AddPackage noto-fonts-cjk # Google Noto CJK fonts
+AddPackage noto-fonts-emoji # Google Noto Color Emoji font
+AddPackage noto-fonts-extra # Google Noto TTF fonts - additional variants
 AddPackage nvidia-open-dkms # NVIDIA open kernel modules - module sources
 AddPackage partitionmanager # A KDE utility that allows you to manage disks, partitions, and file systems
 AddPackage spotify-launcher # Client for spotify's apt repository in Rust for Arch Linux
+AddPackage ttf-bitstream-vera # Bitstream Vera fonts.
 AddPackage ttf-fantasque-nerd # Patched font Fantasque Sans Mono from nerd fonts library
 AddPackage wl-clipboard # Command-line copy/paste utilities for Wayland
 AddPackage wl-clip-persist # Keep Wayland clipboard even after programs close
+AddPackage xclip # Command line interface to the X11 clipboard
 AddPackage xdg-desktop-portal-gnome # Backend implementation for xdg-desktop-portal for the GNOME desktop environment
 AddPackage xwayland-satellite # Xwayland outside your Wayland
 AddPackage --foreign xembedsniproxy
-AddPackage --foreign noctalia-shell # A sleek and minimal desktop shell thoughtfully crafted for Wayland, built with Quickshell.
+AddPackage --foreign noctalia # A sleek, customizable desktop shell crafted for Wayland
 
 # Audio ducking
 AddPackage easyeffects # Audio Effects for Pipewire applications

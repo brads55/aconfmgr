@@ -45,6 +45,7 @@ IgnorePath /usr/share/glib-2.0/\*
 IgnorePath /usr/share/icons/\*/\*.cache
 IgnorePath /usr/share/info/dir
 IgnorePath /usr/share/mime/\*
+IgnorePath /usr/share/vim/vimfiles/doc/tags
 
 # /var
 IgnorePath /var/db/\*
