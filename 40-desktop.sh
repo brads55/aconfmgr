@@ -1,11 +1,13 @@
 # Desktop packages
 AddPackage feh # Fast and light imlib2-based image viewer
 AddPackage firefox # Fast, Private & Safe Web Browser
+AddPackage gimp # GNU Image Manipulation Program
 AddPackage gnome-keyring # Stores passwords and encryption keys
 AddPackage grim # Screenshot utility for Wayland
 AddPackage kitty # A modern, hackable, featureful, OpenGL-based terminal emulator
 AddPackage libappindicator # Allow applications to extend a menu via Ayatana indicators in Unity, KDE or Systray
 AddPackage niri # A scrollable-tiling Wayland compositor
+AddPackage noctalia # A sleek, customizable desktop shell crafted for Wayland
 AddPackage noto-fonts-cjk # Google Noto CJK fonts
 AddPackage noto-fonts-emoji # Google Noto Color Emoji font
 AddPackage noto-fonts-extra # Google Noto TTF fonts - additional variants
@@ -20,7 +22,7 @@ AddPackage xclip # Command line interface to the X11 clipboard
 AddPackage xdg-desktop-portal-gnome # Backend implementation for xdg-desktop-portal for the GNOME desktop environment
 AddPackage xwayland-satellite # Xwayland outside your Wayland
 AddPackage --foreign xembedsniproxy
-AddPackage --foreign noctalia # A sleek, customizable desktop shell crafted for Wayland
+AddPackage --foreign noctalia-greeter # Minimal greetd login greeter with a bundled wlroots compositor
 
 # Audio ducking
 AddPackage easyeffects # Audio Effects for Pipewire applications
@@ -35,10 +37,12 @@ AddPackage --foreign wayland-push-to-talk-fix-git # This fixes the inability to 
 AddPackage xdotool # Command-line X11 automation tool
 CopyFile /etc/sudoers.d/push-to-talk 440
 
-# Autologin
-CopyFile /etc/systemd/system/getty@tty1.service.d/autologin.conf
+# Greeter
+CopyFile /etc/greetd/config.toml
+CopyFile /etc/pam.d/greetd
 
 # Systemd services
+SystemdEnable greetd /usr/lib/systemd/system/greetd.service
 SystemdEnable --type user gnome-keyring /usr/lib/systemd/user/gnome-keyring-daemon.socket
 SystemdEnable --type user pipewire /usr/lib/systemd/user/pipewire.socket
 SystemdEnable --type user pipewire-pulse /usr/lib/systemd/user/pipewire-pulse.socket

@@ -55,12 +55,14 @@ IgnorePath /var/lib/debfoster/keepers
 IgnorePath /var/lib/lastlog
 IgnorePath /var/lib/libuuid
 IgnorePath /var/lib/machines
+IgnorePath /var/lib/noctalia-greeter
 IgnorePath /var/lib/portables
 IgnorePath /var/lib/private
 IgnorePath /var/lib/pacman/\*
 IgnorePath /var/lib/sbctl/\*
 IgnorePath /var/lib/systemd/\*
 IgnorePath /var/lib/tpm2-tss/\*
+IgnorePath /var/lib/upower
 IgnorePath /var/log/\*
 IgnorePath /var/tmp/\*
 IgnorePath /var/.updated

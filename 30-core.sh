@@ -1,4 +1,5 @@
 # Core pacakges
+AddPackage 7zip # File archiver for extremely high compression
 AddPackage bat # Cat clone with syntax highlighting and git integration
 AddPackage diffstat # Display a histogram of diff changes
 AddPackage fd # Simple, fast and user-friendly alternative to find
@@ -19,11 +20,14 @@ AddPackage tree-sitter-cli # CLI tool for developing, testing, and using Tree-si
 AddPackage unzip # For extracting and viewing files in .zip archives
 AddPackage vim # Vi Improved, a highly configurable, improved version of the vi text editor
 AddPackage wget # Network utility to retrieve files from the web
+AddPackage zip # Compressor/archiver for creating and modifying zipfiles
 AddPackage zsh # A very advanced and programmable command interpreter (shell) for UNIX
 
 # Dev tools
 AddPackage cargo-edit # Managing cargo dependencies from the command line
 AddPackage clang # C language family frontend for LLVM
+AddPackage git-cliff # A highly customizable changelog generator
+AddPackage llvm # Compiler infrastructure
 AddPackage ninja # Small build system with a focus on speed
 AddPackage rust # Systems programming language focused on safety, speed and concurrency
 AddPackage rust-src # Source code for the Rust standard library
