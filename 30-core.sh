@@ -40,7 +40,11 @@ AddPackage go-task # A task runner written in Go
 AddPackage go-yq # Portable command-line YAML processor
 AddPackage helmfile # Manage multiple helm charts with a single helmfile
 AddPackage k9s # TUI for managing Kubernetes clusters and pods
-AddPackage talhelper # A tool to help create Talos clusters in your GitOps repository
 AddPackage talosctl # CLI for Talos - A modern OS for Kubernetes
 AddPackage --foreign doppler-cli-bin # CLI utility for Doppler, environment and secrets manager.
 AddPackage --foreign kubecolor # Colorize your kubectl output
+AddPackage --foreign talhelper # A tool to help create Talos clusters in your GitOps repository
+
+# Misc
+AddPackage cifs-utils # CIFS filesystem user-space tools
+AddPackage nfs-utils # Support programs for Network File Systems

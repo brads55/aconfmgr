@@ -8,6 +8,7 @@ AddPackage kitty # A modern, hackable, featureful, OpenGL-based terminal emulato
 AddPackage libappindicator # Allow applications to extend a menu via Ayatana indicators in Unity, KDE or Systray
 AddPackage niri # A scrollable-tiling Wayland compositor
 AddPackage noctalia # A sleek, customizable desktop shell crafted for Wayland
+AddPackage noctalia-greeter # Minimal greetd greeter matching the look and feel of Noctalia Shell
 AddPackage noto-fonts-cjk # Google Noto CJK fonts
 AddPackage noto-fonts-emoji # Google Noto Color Emoji font
 AddPackage noto-fonts-extra # Google Noto TTF fonts - additional variants
@@ -21,8 +22,8 @@ AddPackage wl-clip-persist # Keep Wayland clipboard even after programs close
 AddPackage xclip # Command line interface to the X11 clipboard
 AddPackage xdg-desktop-portal-gnome # Backend implementation for xdg-desktop-portal for the GNOME desktop environment
 AddPackage xwayland-satellite # Xwayland outside your Wayland
+AddPackage --foreign clipboard-sync # Synchronizes the clipboard across multiple X11 and wayland instances running on the same machine.
 AddPackage --foreign xembedsniproxy
-AddPackage --foreign noctalia-greeter # Minimal greetd login greeter with a bundled wlroots compositor
 
 # Audio ducking
 AddPackage easyeffects # Audio Effects for Pipewire applications
